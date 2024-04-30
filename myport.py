@@ -1,8 +1,13 @@
 import streamlit as st
 import base64
 
-def show_contact():    
-
+def home():
+    # Page configs (tab title, favicon)
+    st.set_page_config(
+        page_title="Welcome to my Portfolio",
+        page_icon="🐒",
+        #layout="wide"
+    )
     # CSS styles file
     with open("styles/main.css") as f:
         st.write(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -82,3 +87,11 @@ def show_contact():
     st.write("##")
     
     st.write(f"""<div class="subtitle" style="text-align: center;">⬅️ Check out my Projects in the navigation menu! (Coming soon...)</div>""", unsafe_allow_html=True)
+
+
+
+
+
+# Run the app
+if __name__ == '__main__':
+    home()
