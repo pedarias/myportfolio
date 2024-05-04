@@ -1,11 +1,27 @@
 import streamlit as st
 import base64
+import requests
+from streamlit_lottie import st_lottie
 
 def show_contact():    
+    # CSS styles for button
+    button_style = """
+<style>
+/* Target the button by testid for consistency */
+button[data-testid='baseButton-secondary']:hover {
+    background-color: #4CAF50; /* Green */
+    color: white; /* Ensure text color is white on hover for better visibility */
+}
+</style>
+"""
+    st.markdown(button_style, unsafe_allow_html=True)
 
+
+    
     # CSS styles file
     with open("styles/main.css") as f:
-        st.write(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        main_css = f"<style>{f.read()}</style>"
+        st.markdown(main_css, unsafe_allow_html=True)
     # Profile image file
     with open("assets/me.png", "rb") as img_file:
         img = "data:image/png;base64," + base64.b64encode(img_file.read()).decode()
@@ -33,6 +49,35 @@ def show_contact():
     """, 
     unsafe_allow_html=True)
 
+    # Load and display Lottie animations
+    def load_lottieurl(url: str):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+
+    lottie_urls = {
+        "python": "https://assets6.lottiefiles.com/packages/lf20_2znxgjyt.json",
+        "java": "https://assets9.lottiefiles.com/packages/lf20_zh6xtlj9.json",
+        "my_sql": "https://assets4.lottiefiles.com/private_files/lf30_w11f2rwn.json",
+        "git": "https://assets9.lottiefiles.com/private_files/lf30_03cuemhb.json",
+        "github": "https://assets8.lottiefiles.com/packages/lf20_6HFXXE.json",
+        "docker": "https://assets4.lottiefiles.com/private_files/lf30_35uv2spq.json",
+        "figma": "https://lottie.host/5b6292ef-a82f-4367-a66a-2f130beb5ee8/03Xm3bsVnM.json",
+        "js": "https://lottie.host/fc1ad1cd-012a-4da2-8a11-0f00da670fb9/GqPujskDlr.json"
+    }
+
+    lottie_animations = {key: load_lottieurl(url) for key, url in lottie_urls.items()}
+    with st.container():
+        st.subheader('Skills')
+        cols = st.columns(len(lottie_animations))
+        for col, (key, animation) in zip(cols, lottie_animations.items()):
+            with col:
+                if animation:
+                    st_lottie(animation, height=150, key=key)
+
+    # Social Icons and other sections
+    # (The rest of your contact.py code here...)
 
     # Subtitle
     st.write(f"""<div class="subtitle" style="text-align: center;">Data Scientist | AI Specialist</div>""", unsafe_allow_html=True)
@@ -76,7 +121,7 @@ def show_contact():
         label="📄 Download my CV",
         data=pdf_bytes,
         file_name="curricu.pdf",
-        mime="application/pdf",
+        mime="application/pdf"
     )
 
     st.write("##")

@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from Pages import home, project, contact
+from Pages import home, project, contact, create
 from streamlit_option_menu import option_menu
 
 # Page configs (tab title, favicon)
@@ -24,7 +24,7 @@ st.sidebar.image(logo, use_column_width=True)
 
 # Sidebar navigation using streamlit_option_menu
 with st.sidebar:
-    choose = option_menu("Main Menu", ["My Home Page", "My Projects", "About Me"],
+    choose = option_menu("Main Menu", ["My Home Page", "My Projects", "About Me", "Create ML"],
                          icons=['house', 'book', 'person'],
                          menu_icon="cast", default_index=0,
                          styles={
@@ -46,9 +46,11 @@ with st.sidebar:
 
 # Page rendering based on sidebar navigation
 if choose == "My Home Page":
-    home.show_home()
+    home.main()
 elif choose == "My Projects":
     project.show_projects()
 elif choose == "About Me":
     contact.show_contact()
+elif choose == "Create ML":
+    create.createML()
 
