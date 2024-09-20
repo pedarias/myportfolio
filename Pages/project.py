@@ -52,38 +52,205 @@ def show_hub_ia_projects():
 
 # Projetos da empresa Trimble
 def show_trimble_projects():
-    st.markdown("### Trimble Transportation - Análise e Predição de Dados na Gestão de Frotas")
+    st.markdown("# Projeto Trimble Transportation - HUB-IA SENAI")
+    
+    st.image("assets/Trimble-logo.png", caption="Trimble", width=200)
+    
     st.markdown("""
-    - **Descrição**: Este projeto visa a análise exploratória de dados e predição de padrões operacionais relacionados à fadiga dos motoristas. Utilizamos técnicas de Big Data e Machine Learning para segmentação e predição de variáveis operacionais críticas.
-    - **Tecnologias Usadas**: Pandas, PySpark, Scikit-Learn, Matplotlib, Plotly
+    ## Sobre a Empresa
+
+    **Trimble Transportation** é uma divisão da **Trimble Inc.**, especializada em soluções tecnológicas para o setor de transporte e logística. Seu foco é fornecer ferramentas inovadoras que aumentem a eficiência operacional e a segurança na gestão de frotas. Durante a parceria com o **HUB de IA do SENAI**, foram desenvolvidas Provas de Conceito (POCs) estruturadas em 4 Sprints, abordando desafios críticos da empresa.
+
+    ---
     """)
+
+    st.markdown("""
+    ### POC 1: Análise e Predição de Dados na Gestão de Frotas
+
+    #### Objetivo
+    Desenvolver uma solução para análise exploratória de dados, predição e segmentação de padrões operacionais usando **Machine Learning**, visando a identificação de padrões relacionados à fadiga de motoristas.
+
+    #### Tecnologias Utilizadas
+    - **Visualização de Dados**: Matplotlib, Plotly
+    - **Ciência de Dados**: Pandas, SciPy, PySpark
+    - **Machine Learning**: Scikit-Learn
+
+    #### Descrição do Projeto
+    - **Sprint 1**: Realizamos uma análise exploratória dos dados fornecidos pela Trimble, buscando identificar padrões de uso na plataforma da empresa. Para isso, desenvolvemos um **dashboard interativo em Streamlit**, permitindo a visualização e filtragem dos dados de forma eficiente e dinâmica.
+    
+    - **Sprint 2**: O foco foi identificar padrões relacionados à **fadiga dos motoristas**. Utilizando **Big Data** com **PySpark**, aplicamos técnicas de **clusterização**, como **K-means** e **DBSCAN**, para segmentar os dados. Em seguida, modelos preditivos como **Random Forest** foram usados para prever situações de fadiga. Os resultados incluíram a identificação de clusters operacionais críticos, correlacionando variáveis que contribuem para o aumento da fadiga.
+    """)
+    
     st.image("assets/PCA.png", caption="Resultados da Análise PCA", width=400)
 
-    st.markdown("### Trimble Transportation - Identificação e Segmentação de Objetos e Classificação de Chuva")
     st.markdown("""
-    - **Descrição**: Projeto de visão computacional com foco na segurança e organização das cabines dos veículos. Desenvolvemos também um classificador de condições climáticas baseado em imagens.
-    - **Tecnologias Usadas**: PyTorch, TensorFlow, Keras, Matplotlib, Plotly
+    ---
+    ### POC 2: Identificação e Segmentação de Objetos Soltos e Classificação de Chuva
+
+    #### Objetivo
+    Aplicar técnicas de **Visão Computacional** para identificar objetos soltos nas cabines dos veículos e desenvolver um classificador de condições climáticas adversas, focado na detecção de chuva.
+
+    #### Tecnologias Utilizadas
+    - **Visualização de Dados**: Matplotlib, Plotly
+    - **Deep Learning**: PyTorch, Keras, TensorFlow
+
+    #### Descrição do Projeto
+    - **Sprint 3**: O foco foi a **segmentação de objetos soltos** nas cabines dos veículos, visando aumentar a segurança e organização. Implementamos o algoritmo **YOLOv9-SEG** para segmentação, além de empregar **GroundingDINO** e **Segment Anything Model (SAM)** para a detecção e segmentação **zero-shot** de novos objetos sem necessidade de re-treinamento, aumentando a flexibilidade do sistema.
+
+    - **Sprint 4**: Desenvolvemos um **classificador de condições de chuva** baseado em imagens capturadas por câmeras veiculares. O modelo foi construído utilizando redes neurais convolucionais (**CNN**) com **Transfer Learning** e **Fine Tuning**, ajustando modelos pré-treinados ao nosso dataset específico. Para mitigar **overfitting**, utilizamos camadas de regularização e **callbacks** para monitorar a performance em conjuntos de validação. O modelo final apresentou melhora significativa na acurácia no conjunto de teste, sendo capaz de identificar condições climáticas adversas com precisão.
     """)
+
     st.image("assets/EnsembleTransferLearning.png", caption="Transfer Learning para Classificação de Imagens", width=400)
+    st.markdown("*Fonte Imagem: [Ensemble Transfer Learning Framework for Vessel Size Estimation from 2D Images](https://www.researchgate.net/publication/333619654_Ensemble_Transfer_Learning_Framework_for_Vessel_Size_Estimation_from_2D_Images)*")
+
 
 # Projetos da empresa AGCO
 def show_agco_projects():
-    st.markdown("### AGCO - Identificação de Inconsistências em Bases de Dados")
+    st.markdown("# Projeto AGCO - HUB-IA SENAI")
+
+    st.image("assets/AGCO-descript-logo.png", caption="AGCO", width=400)
+
     st.markdown("""
-    - **Descrição**: Este projeto visa identificar e analisar inconsistências entre diferentes bases de dados da empresa AGCO. Um pipeline de ETL foi desenvolvido para processamento de dados.
-    - **Tecnologias Usadas**: Python, FastAPI, PostgreSQL, Streamlit, Docker
+    ## Sobre o Projeto
+
+    Este projeto foi desenvolvido durante minha residência no **HUB de IA do SENAI** e visa identificar e analisar inconsistências entre diferentes bases de dados da **AGCO**, uma das maiores fabricantes de equipamentos agrícolas do mundo. 
+    O objetivo central foi a criação de uma solução que automatizasse a detecção de discrepâncias nos dados provenientes de múltiplos sistemas. 
+    
+    Para isso, foi desenvolvido um **pipeline de ETL** capaz de processar diversos formatos de dados, como **CSV**, **XML**, e **XLSX**, e armazená-los em um banco de dados **PostgreSQL**. Além disso, uma **API** foi implementada utilizando **FastAPI** para facilitar a interação entre o frontend e backend, enquanto a interface do usuário foi criada em **Streamlit** para possibilitar o upload e a visualização das análises de inconsistências.
+
+    ---
     """)
-    st.image("assets/agcoarquitetura.png", caption="Arquitetura do Sistema AGCO", width=400)
+
+    st.image("assets/etlpipelineagco.png", caption="ETL Pipeline", width=600)
+
+    st.markdown("""
+    ## Arquitetura do Sistema
+
+    - **ETL Pipeline**: Automação completa para extração, transformação e carregamento dos dados em diferentes formatos, com armazenamento no banco de dados **PostgreSQL**.
+    - **FastAPI**: API responsável pelas operações CRUD no banco de dados, atuando como intermediário entre o frontend e backend.
+    - **Streamlit**: Interface gráfica desenvolvida para permitir que o usuário faça upload de arquivos, visualize dados e análises de inconsistências.
+    - **Docker**: Containerização dos componentes do sistema, garantindo consistência entre os ambientes de desenvolvimento e produção.
+
+    ---
+    """)
+
+    st.image("assets/agcoarquitetura.png", caption="Arquitetura do Sistema", width=400)
+
+    st.markdown("""
+    ## Funcionalidades
+
+    - **Identificação de Divergências**: O sistema detecta discrepâncias em registros de múltiplos sistemas, facilitando a auditoria e conferência de dados financeiros e operacionais.
+    - **Verificação de Registros Temporais**: Validação dos registros com base em critérios temporais, garantindo a conformidade com os períodos vigentes.
+    - **Análise Geográfica**: Apresentação de resultados em forma de mapas e gráficos, permitindo uma análise geográfica das inconsistências encontradas.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Tecnologias Utilizadas
+
+    - **Python**: Linguagem principal usada para o backend e processamento dos dados.
+    - **FastAPI**: Framework utilizado para a criação da API, facilitando a comunicação entre o frontend e o backend.
+    - **PostgreSQL**: Banco de dados relacional utilizado para armazenar os dados processados.
+    - **Streamlit**: Framework para construção da interface gráfica que permite interações e visualização dos dados de forma intuitiva.
+    - **Docker**: Ferramenta utilizada para containerização e padronização do ambiente de desenvolvimento e produção.
+
+    ---
+    """)
+
+    # Inclui imagens e outros recursos
     st.image("assets/etlpipelineagco.png", caption="Pipeline de ETL para o Projeto AGCO", use_column_width=True)
+
 
 # Projetos da empresa IST
 def show_ist_projects():
-    st.markdown("### IST - Otimização de Parâmetros em Modelo de Circuito Equivalente")
-    st.markdown("""
-    - **Descrição**: Este projeto foi desenvolvido para ajustar os parâmetros de modelos de circuitos equivalentes com base em dados experimentais de Espectroscopia de Impedância Eletroquímica (EIS).
-    - **Tecnologias Usadas**: Python, Pandas, SciPy, Evolução Diferencial, Pyplot
-    """)
+    st.markdown("# Otimização de Parâmetros em Modelo de Circuito Equivalente Utilizando Algoritmo de Evolução")
+
     st.image("assets/ISTarq.png", caption="Pipeline do Projeto de Otimização de Parâmetros", use_column_width=True)
+
+    st.markdown("""
+    ## Sobre o Projeto
+
+    Este projeto foi desenvolvido para o **Instituto SENAI de Tecnologia e Inovação** com o objetivo de ajustar os parâmetros de modelos de circuitos equivalentes para que estes se comportem de maneira semelhante aos dados experimentais de **Espectroscopia de Impedância Eletroquímica (EIS)**. Utilizando uma abordagem de otimização, o projeto visa melhorar a acurácia dos modelos simulados ao ajustar seus parâmetros com base em dados reais.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Objetivos
+
+    - Propor uma metodologia eficiente para ajustar os parâmetros de circuitos equivalentes a partir de dados experimentais de EIS.
+    - Utilizar algoritmos de otimização para encontrar os parâmetros que melhor se ajustem aos dados experimentais.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Escopo
+
+    O projeto envolve a modelagem de sistemas eletroquímicos a partir de dados de EIS, utilizando técnicas avançadas de ajuste de parâmetros e otimização para aprimorar os modelos de circuitos equivalentes.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Tecnologias Utilizadas
+
+    - **Análise de Dados**: Python, Pandas, SciPy
+    - **Algoritmos de Otimização**: Evolução Diferencial
+    - **Visualização**: Pyplot para geração de gráficos de Nyquist
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Metodologia
+
+    Os dados de EIS fornecidos pelo Instituto SENAI foram cuidadosamente pré-processados e analisados para extrair as características relevantes dos sistemas eletroquímicos. Esses dados permitiram a formulação dos modelos de circuito equivalente, utilizados para simular o comportamento dos sistemas.
+
+    ### Otimização
+
+    O algoritmo de **Evolução Diferencial** foi aplicado para otimizar os parâmetros dos modelos de circuito equivalente. A função de custo foi definida para minimizar o erro entre os valores simulados e os dados experimentais, assegurando que os modelos ajustados refletissem com precisão o comportamento eletroquímico dos sistemas.
+
+    ### Visualização
+
+    Para verificar a precisão dos ajustes, **gráficos de Nyquist** foram gerados, permitindo uma comparação visual entre os dados experimentais e os dados simulados dos modelos ajustados. Estes gráficos são fundamentais para avaliar a adequação dos modelos otimizados.
+
+    ---
+    """)
+
+    st.image("assets/ISTarq.png", caption="Pipeline do Projeto", use_column_width=True)
+
+    st.markdown("""
+    ## Resultados
+
+    Os resultados obtidos demonstraram a eficácia do algoritmo de **Evolução Diferencial** na otimização dos parâmetros dos circuitos equivalentes, com uma significativa redução no erro entre os dados simulados e experimentais. Através da visualização gráfica dos dados, foi possível validar a acurácia dos modelos.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Próximos Passos
+
+    O próximo passo é explorar a aplicação de **redes neurais** para a otimização dos parâmetros em futuras iterações, com o objetivo de melhorar ainda mais a precisão dos modelos ajustados.
+
+    ---
+    """)
+
+    st.markdown("""
+    ## Contato
+
+    ##### Pedro Henrique Arias Oliveira:
+    <p align="center"> 
+      <a href="https://www.linkedin.com/in/pedroarias92/" target="_blank">
+        <img align="center" src="https://logosmarcas.net/wp-content/uploads/2020/04/Linkedin-Logo.png" height="30" />
+      </a> 
+      <a href="mailto:pedro.oliveira@sistemafiep.org.br" target="_blank">
+        <img align="center" src="https://w7.pngwing.com/pngs/995/259/png-transparent-microsoft-outlook-logo-outlook-com-microsoft-outlook-email-microsoft-office-365-outlook-miscellaneous-blue-text.png" height="30" />
+      </a>
+    </p>
+    """)
+
 
 # Função para exibir os projetos pessoais
 def show_personal_projects():
