@@ -1,9 +1,12 @@
+/* Importação da fonte Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-* {font-family: 'Inter';}
+/* Aplicação global da fonte */
+* {
+  font-family: 'Inter', sans-serif;
+}
 
-
-/* Home page styles */
+/* ===== Home Page Styles ===== */
 .title {
   text-align: center;
   font-size: 2.5em;
@@ -13,12 +16,14 @@
 }
 
 .subtitle {
+  text-align: center;  /* Centralizando para manter consistência */
   font-size: 1.5em;
   font-weight: 500;
   color: #d6fde3;
   margin-bottom: 5px;
 }
 
+/* Estilos para ícones sociais */
 .social-icon {
   width: 25px;
   height: 25px;
@@ -27,11 +32,10 @@
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; /* Remove o estilo padrão de listas */
 }
 
-
-/* Animated home profile image styles */
+/* ===== Animated Profile Image Styles ===== */
 .container {
   height: 400px;
   display: flex;
@@ -44,18 +48,9 @@ ul {
   width: 300px;
   height: 300px;
   position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    transform: scale(1.42);
-  }
 }
 
+/* Animação de rotação e mudança de forma */
 .spin-container {
   width: 100%;
   height: 100%;
@@ -81,7 +76,6 @@ ul {
   left: -5%;
   top: -5%;
   display: flex;
-  color: #003;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -97,19 +91,31 @@ ul {
   object-fit: cover;
 }
 
-@keyframes morph {
-  0% {border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;} 
-  100% {border-radius: 40% 60%;} 
-}
-
+/* Animação para a rotação */
 @keyframes spin {
   to {
     transform: rotate(1turn);
   }
 }
 
+/* Animação para mudar o formato */
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  } 
+  100% {
+    border-radius: 40% 60%;
+  } 
+}
 
-/* Hide Streamlit default elements */
-#MainMenu {visibility: hidden;}
-header {visibility: hidden;}
+/* ===== Streamlit Element Hiding ===== */
+#MainMenu {
+  visibility: hidden;
+}
+
+header {
+  visibility: hidden;
+}
+
+/* Se necessário esconder o rodapé, descomente abaixo */
 /* footer {visibility: hidden;} */
