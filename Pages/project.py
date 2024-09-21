@@ -59,7 +59,7 @@ def show_trimble_projects():
     st.markdown("""
     ## Sobre a Empresa
 
-    **Trimble Transportation** é uma divisão da **Trimble Inc.**, especializada em soluções tecnológicas para o setor de transporte e logística. Seu foco é fornecer ferramentas inovadoras que aumentem a eficiência operacional e a segurança na gestão de frotas. Durante a parceria com o **HUB de IA do SENAI**, foram desenvolvidas Provas de Conceito (POCs) estruturadas em 4 Sprints, abordando desafios críticos da empresa.
+    **Trimble Transportation** é uma divisão da **Trimble Inc.**, especializada em soluções tecnológicas para o setor de transporte e logística. Seu foco é fornecer ferramentas inovadoras que aumentem a eficiência operacional e a segurança na gestão de frotas. Durante a parceria com o **HUB de IA do SENAI**, foram desenvolvidas Provas de Conceito (POCs) estruturadas em 4 Sprints.
 
     ---
     """)
@@ -78,7 +78,7 @@ def show_trimble_projects():
     #### Descrição do Projeto
     - **Sprint 1**: Realizamos uma análise exploratória dos dados fornecidos pela Trimble, buscando identificar padrões de uso na plataforma da empresa. Para isso, desenvolvemos um **dashboard interativo em Streamlit**, permitindo a visualização e filtragem dos dados de forma eficiente e dinâmica.
     
-    - **Sprint 2**: O foco foi identificar padrões relacionados à **fadiga dos motoristas**. Utilizando **Big Data** com **PySpark**, aplicamos técnicas de **clusterização**, como **K-means** e **DBSCAN**, para segmentar os dados. Em seguida, modelos preditivos como **Random Forest** foram usados para prever situações de fadiga. Os resultados incluíram a identificação de clusters operacionais críticos, correlacionando variáveis que contribuem para o aumento da fadiga.
+    - **Sprint 2**: O foco foi identificar padrões relacionados à **fadiga dos motoristas**. Utilizando **Big Data** com **PySpark**, aplicamos técnicas de **clusterização**, como **K-means** e **DBSCAN**, para segmentar os dados. Em seguida, modelos preditivos como **Random Forest** foram usados para prever situações de fadiga. Os resultados incluíram a identificação de clusters operacionais, correlacionando variáveis que contribuem para o aumento da fadiga.
     """)
     
     st.image("assets/PCA.png", caption="Resultados da Análise PCA", width=400)
@@ -95,9 +95,9 @@ def show_trimble_projects():
     - **Deep Learning**: PyTorch, Keras, TensorFlow
 
     #### Descrição do Projeto
-    - **Sprint 3**: O foco foi a **segmentação de objetos soltos** nas cabines dos veículos, visando aumentar a segurança e organização. Implementamos o algoritmo **YOLOv9-SEG** para segmentação, além de empregar **GroundingDINO** e **Segment Anything Model (SAM)** para a detecção e segmentação **zero-shot** de novos objetos sem necessidade de re-treinamento, aumentando a flexibilidade do sistema.
+    - **Sprint 3**: O foco foi **detectar e segmentar objetos soltos**. Implementamos o modelo **YOLOv9-SEG** para segmentação, além disso, utilizamos as arquiteturas de **GroundingDINO** e **Segment Anything Model (SAM)** para a detecção e segmentação **zero-shot** de novos objetos sem necessidade de re-treinamento, que visa detectar e segmentar qualquer coisa através de textos!
 
-    - **Sprint 4**: Desenvolvemos um **classificador de condições de chuva** baseado em imagens capturadas por câmeras veiculares. O modelo foi construído utilizando redes neurais convolucionais (**CNN**) com **Transfer Learning** e **Fine Tuning**, ajustando modelos pré-treinados ao nosso dataset específico. Para mitigar **overfitting**, utilizamos camadas de regularização e **callbacks** para monitorar a performance em conjuntos de validação. O modelo final apresentou melhora significativa na acurácia no conjunto de teste, sendo capaz de identificar condições climáticas adversas com precisão.
+    - **Sprint 4**: Desenvolvemos um **classificador de condições de chuva** baseado em imagens capturadas por câmeras veiculares. O modelo foi construído utilizando redes neurais convolucionais (**CNN**) com **Transfer Learning** e **Fine Tuning**, ajustando modelos pré-treinados ao nosso dataset específico. Para mitigar **Overfitting**, utilizamos camadas de regularização e **callbacks** para monitorar a performance do modelo no conjunto de validação. O modelo final apresentou melhora significativa na acurácia no conjunto de teste, comparado com o modelo sem regularizadores (sem métodos para prevenir overfitting), mostrando que o modelo é capaz de Generalizar melhor.
     """)
 
     st.image("assets/EnsembleTransferLearning.png", caption="Transfer Learning para Classificação de Imagens", width=400)
@@ -114,9 +114,9 @@ def show_agco_projects():
     ## Sobre o Projeto
 
     Este projeto foi desenvolvido durante minha residência no **HUB de IA do SENAI** e visa identificar e analisar inconsistências entre diferentes bases de dados da **AGCO**, uma das maiores fabricantes de equipamentos agrícolas do mundo. 
-    O objetivo central foi a criação de uma solução que automatizasse a detecção de discrepâncias nos dados provenientes de múltiplos sistemas. 
+    O objetivo central foi a criação de uma solução que automatizasse a detecção de discrepâncias nos dados provenientes da empresa. 
     
-    Para isso, foi desenvolvido um **pipeline de ETL** capaz de processar diversos formatos de dados, como **CSV**, **XML**, e **XLSX**, e armazená-los em um banco de dados **PostgreSQL**. Além disso, uma **API** foi implementada utilizando **FastAPI** para facilitar a interação entre o frontend e backend, enquanto a interface do usuário foi criada em **Streamlit** para possibilitar o upload e a visualização das análises de inconsistências.
+    Para isso, foi desenvolvido um **pipeline de ETL** capaz de extrair diversos formatos de dados, transformá-los e armazená-los em um banco de dados **PostgreSQL**. Além disso, uma **API** foi implementada utilizando **FastAPI** para facilitar a interação entre o frontend e backend, enquanto a interface do usuário foi criada em **Streamlit** para possibilitar o upload e a visualização das análises num Dashboard.
 
     ---
     """)
@@ -129,7 +129,7 @@ def show_agco_projects():
     - **ETL Pipeline**: Automação completa para extração, transformação e carregamento dos dados em diferentes formatos, com armazenamento no banco de dados **PostgreSQL**.
     - **FastAPI**: API responsável pelas operações CRUD no banco de dados, atuando como intermediário entre o frontend e backend.
     - **Streamlit**: Interface gráfica desenvolvida para permitir que o usuário faça upload de arquivos, visualize dados e análises de inconsistências.
-    - **Docker**: Containerização dos componentes do sistema, garantindo consistência entre os ambientes de desenvolvimento e produção.
+    - **Docker**: Containerização dos componentes do sistema, garantindo consistência entre os ambientes de desenvolvimento e produção e escalabilidade.
 
     ---
     """)
@@ -139,9 +139,10 @@ def show_agco_projects():
     st.markdown("""
     ## Funcionalidades
 
-    - **Identificação de Divergências**: O sistema detecta discrepâncias em registros de múltiplos sistemas, facilitando a auditoria e conferência de dados financeiros e operacionais.
-    - **Verificação de Registros Temporais**: Validação dos registros com base em critérios temporais, garantindo a conformidade com os períodos vigentes.
-    - **Análise Geográfica**: Apresentação de resultados em forma de mapas e gráficos, permitindo uma análise geográfica das inconsistências encontradas.
+    - **Identificação de Divergências**
+    - **Verificação de Registros Temporais**
+    - **Análise Geográfica**
+    - **Análise Exploratória dos Dados**
 
     ---
     """)
@@ -206,7 +207,7 @@ def show_ist_projects():
     st.markdown("""
     ## Metodologia
 
-    Os dados de EIS fornecidos pelo Instituto SENAI foram cuidadosamente pré-processados e analisados para extrair as características relevantes dos sistemas eletroquímicos. Esses dados permitiram a formulação dos modelos de circuito equivalente, utilizados para simular o comportamento dos sistemas.
+    Os dados de EIS fornecidos pelo IST foram pré-processados e analisados para extrair as características relevantes dos sistemas eletroquímicos. Esses dados permitiram a formulação dos modelos de circuito equivalente, utilizados para simular o comportamento do sistema.
 
     ### Otimização
 

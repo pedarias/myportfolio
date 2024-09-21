@@ -9,11 +9,10 @@ def show_contact():
     # About me section
     st.subheader("About Me")
     st.write("""
-    - I am a **graduated Physicist** from the Universidade Estadual de Londrina (UEL), who has deepened in the Master's course in Computer Engineering at UTFPR-CP, thematic area Artificial Intelligence. My interest in switching my major from Physics to Computer Science was kindled by the great passion I have: applying abstract mathematical ideas to real problems in the industry.
+    - Sou bacharel em Física pela UEL (Universidade Estadual de Londrina) e, ao longo da minha formação, desenvolvi habilidades sólidas de pensamento lógico que podem ser aplicadas de maneira eficaz no campo da Ciência da Computação. Ao realizar à transição da Física para a Ciência da Computação, percebi que eu gostaria de continuar estudando matemática abstrata mas aplicá-la em algo mais concreto, no mercado de trabalho por exemplo.
 
-        In my master's degree at HUB IA Senai, I work with projects in Data Science and Automation, which offer real solutions to the problems that customer companies go through. This position need continuous learning while using new technologies, of which I have become an expert in Python and SQL, among others. My work involves building machine learning models, web applications, conducting data studies, and automating processes through ETLs and webscraping.
-
-        This amalgamation of academic rigor and practical application really goes on to underline my commitment toward making a mark in the industry not only by improving technical skills but also by contributing to them through innovation and development. Taking all this into consideration, I am devoted to constant professional development. I become active in courses, where I would like to widen my knowledge and improve competence in the fast-evolving tech landscape 🧑‍💻.
+Sou aluno regular do Programa de Pós-Graduação em Informática (PPGI) da UTFPR-CP (Universidade Tecnológica Federal do Paraná - Câmpus Cornélio Procópio). É um mestrado integrado com o programa de Residência em Inteligência Artificial no HUB-IA SENAI, no qual desenvolvemos projetos e soluções inovadoras para empresas clientes do programa, lidando diretamente com problemas reais.
+Atualmente, atuo como **Cientista de Dados Jr** no SENAI onde busco participar dos mais diversos projetos possíveis, com o objetivo de ampliar meus conhecimentos e ganhar experiência na área. Estou comprometido com o aprendizado contínuo e entusiasmado em aplicar minhas habilidades para solucionar problemas práticos no mercado de trabalho.
     
     - 📫 How to reach me: pedroarias92@gmail.com
     
