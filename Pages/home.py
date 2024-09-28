@@ -1,5 +1,3 @@
-#Pages/home.py
-
 import streamlit as st
 import requests
 from PIL import Image
@@ -7,28 +5,19 @@ import base64
 from streamlit_lottie import st_lottie
 
 def main():
-    """
-    Main function to display the home page of the portfolio.
-    This will serve as an introduction to the user's portfolio and background.
-    """
-    # CSS styles file
+    # Carregar o CSS
     with open("styles/main.css") as f:
         main_css = f"<style>{f.read()}</style>"
         st.markdown(main_css, unsafe_allow_html=True)
-    # Profile image file
+
+    # Carregar e exibir imagem de perfil
     with open("assets/me.jpeg", "rb") as img_file:
         img = "data:image/png;base64," + base64.b64encode(img_file.read()).decode()
-    
+
     # Display profile image and title
-    # Usando markdown com HTML embutido para customizar estilo
-
-    # Texto "Welcome to my Portfolio" com cor alterada
     st.markdown("<h1 style='text-align: center; color: #0000FF;'>Welcome to my Portfolio</h1>", unsafe_allow_html=True)
-
-    # Texto "Hello! My name is Pedro" com fonte menor
     st.markdown("<h3 style='text-align: center;'>Hello! My name is Pedro</h3>", unsafe_allow_html=True)
 
-    
     st.write(f"""
     <div class="container">
         <div class="box">
@@ -43,7 +32,7 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-    # Load and display Lottie animations for skills
+    # Animações Lottie
     def load_lottieurl(url: str):
         r = requests.get(url)
         if r.status_code != 200:
@@ -70,25 +59,14 @@ def main():
                 if animation:
                     st_lottie(animation, height=150, key=key)
 
-    # Subtitle
-    st.write(f"""<div class="subtitle" style="text-align: center;">Data Scientist | AI Specialist</div>""", unsafe_allow_html=True)
-
     # Social Icons
     social_icons_data = {
         "LinkedIn": ["https://linkedin.com/in/pedroarias92", "https://cdn-icons-png.flaticon.com/512/174/174857.png"],
         "GitHub": ["https://github.com/pedarias", "https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg"]
     }
 
-    social_icons_html = [f"<a href='{social_icons_data[platform][0]}' target='_blank' style='margin-right: 10px;'><img class='social-icon' src='{social_icons_data[platform][1]}' alt='{platform}'></a>" for platform in social_icons_data]
+    social_icons_html = [f"<a href='{social_icons_data[platform][0]}' target='_blank'><img src='{social_icons_data[platform][1]}' width='25'></a>" for platform in social_icons_data]
+    st.write(f"<div style='display: flex; justify-content: center;'>{''.join(social_icons_html)}</div>", unsafe_allow_html=True)
 
-    st.write(f"""
-    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-        {''.join(social_icons_html)}
-    </div>""", unsafe_allow_html=True)
-
-    # Add a call-to-action or navigation guidance
     st.write("## Explore My Projects!")
     st.write("Check out the 'Projects' section to see detailed descriptions of the work I have done so far.")
-
-if __name__ == "__main__":
-    main()

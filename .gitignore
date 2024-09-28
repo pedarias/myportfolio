@@ -1,6 +1,3 @@
-venv/
-.vscode
-__pycache__
-Llama3-Tutorials/
-.env
-venv/
+**/__pycache__/
+.streamlit/secrets.toml
+forms/

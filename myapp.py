@@ -3,11 +3,13 @@ from PIL import Image
 from Pages import home, project, contact
 from streamlit_option_menu import option_menu
 
+# 1. Chame `st.set_page_config` imediatamente após `import streamlit`
 st.set_page_config(
     page_title="Welcome to my Portfolio",
     page_icon="🐒",
 )
 
+# 2. Defina estilos personalizados após `set_page_config`
 mystyle = '''
 <style>
     p { text-align: justify; }
@@ -16,9 +18,11 @@ mystyle = '''
 '''
 st.markdown(mystyle, unsafe_allow_html=True)
 
-logo = Image.open('/home/ph/Downloads/Dall-e.webp' )  # Adjust path as needed
+# 3. Carregue o logo e configure a barra lateral
+logo = Image.open('./assets/Dall-e.webp')  # Certifique-se de que o caminho está correto
 st.sidebar.image(logo, use_column_width=True)
 
+# 4. Menu de navegação na barra lateral
 with st.sidebar:
     choose = option_menu("Main Menu", ["My Home Page", "My Projects", "About Me"],
                          icons=['house', 'book', 'person'],
@@ -30,6 +34,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#007BFF", "color": "white"}
     })
 
+# 5. Rotear entre as páginas
 if choose == "My Home Page":
     home.main()
 elif choose == "My Projects":

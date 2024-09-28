@@ -1,4 +1,6 @@
 import streamlit as st
+from PIL import Image
+
 
 def show_projects():
     # Carregar o CSS
@@ -38,9 +40,9 @@ def show_hub_ia_projects():
     """)
 
     # Seleção da empresa dentro dos projetos HUB-IA
-    company = st.selectbox(
+    company = st.radio(
         "Selecione a empresa para ver os projetos",
-        ["Trimble", "AGCO", "IST"]
+        ["Trimble", "AGCO", "IST", "UFV"]
     )
 
     if company == "Trimble":
@@ -49,6 +51,8 @@ def show_hub_ia_projects():
         show_agco_projects()
     elif company == "IST":
         show_ist_projects()
+    elif company == "UFV":
+        show_ufv_projects()
 
 # Projetos da empresa Trimble
 def show_trimble_projects():
@@ -127,7 +131,7 @@ def show_agco_projects():
     ## Arquitetura do Sistema
 
     - **ETL Pipeline**: Automação completa para extração, transformação e carregamento dos dados em diferentes formatos, com armazenamento no banco de dados **PostgreSQL**.
-    - **FastAPI**: API responsável pelas operações CRUD no banco de dados, atuando como intermediário entre o frontend e backend.
+    - **FastAPI**: API responsável pelas operações CRUD no banco de dados, atuando como intermediário entre o frontend e o backend.
     - **Streamlit**: Interface gráfica desenvolvida para permitir que o usuário faça upload de arquivos, visualize dados e análises de inconsistências.
     - **Docker**: Containerização dos componentes do sistema, garantindo consistência entre os ambientes de desenvolvimento e produção e escalabilidade.
 
@@ -250,26 +254,60 @@ def show_ist_projects():
         <img align="center" src="https://w7.pngwing.com/pngs/995/259/png-transparent-microsoft-outlook-logo-outlook-com-microsoft-outlook-email-microsoft-office-365-outlook-miscellaneous-blue-text.png" height="30" />
       </a>
     </p>
+    """, unsafe_allow_html=True)
+
+# Projetos da Universidade Federal de Viçosa
+def show_ufv_projects():
+    st.markdown("# Projeto Universidade Federal de Viçosa - HUB-IA SENAI")
+
+    st.image("assets/UFV-logo.png", caption="Universidade Federal de Viçosa", width=200)
+
+    st.markdown("""
+    ## Aplicação de Modelos de Detecção de Objetos para Identificação de Macacos em Imagens e Vídeos
+
+    ### Objetivo
+    Desenvolver modelos de visão computacional para detectar e identificar macacos em imagens e vídeos, utilizando técnicas avançadas de **Inteligência Artificial** e **Aprendizado de Máquina**.
+
+    ### Tecnologias Utilizadas
+    - **Visão Computacional**: OpenCV
+    - **Deep Learning**: PyTorch
+    - **Modelos de Detecção de Objetos**: YOLOv8, Detectron2
+    - **Ferramentas de Anotação de Dados**: Roboflow
+    - **Linguagem de Programação**: Python
+
+    ### Descrição do Projeto
+    O projeto envolveu o desenvolvimento e a comparação de diferentes modelos de detecção de objetos para identificar macacos em imagens capturadas por câmeras térmicas. Foram utilizadas técnicas de **Deep Learning**, incluindo Redes Neurais Convolucionais e algoritmos de detecção como o **YOLOv8** e o **Detectron2**.
+
+    #### Pré-processamento e Anotação de Dados
+    - Utilização de ferramentas como o **Roboflow** para anotação e preparação dos datasets.
+    - Conversão dos dados para formatos adequados para cada modelo, como o formato **COCO** para o Detectron2.
+
+    #### Desenvolvimento dos Modelos
+    - **Detectron2**: Implementação e treinamento do modelo para detecção de objetos, explorando diferentes hiperparâmetros.
+    - **YOLOv8**: Treinamento do modelo **YOLOv8**, que apresentou melhor desempenho na detecção dos macacos.
+
+    #### Resultados
+    - O modelo **YOLOv8** conseguiu detectar macacos em imagens térmicas com alta precisão, demonstrando a eficácia das técnicas de **Deep Learning** aplicadas.
+    - Foram gerados gráficos de perda e métricas de desempenho para avaliar a evolução do treinamento.
+
+    ### Próximos Passos
+    - Otimização dos hiperparâmetros do modelo para melhorar a precisão.
+    - Aumentar a variedade e quantidade de dados de treinamento, incluindo imagens de fundo sem macacos, para reduzir falsos positivos.
+    - Desenvolvimento de uma interface de usuário para facilitar o teste e a aplicação do modelo em diferentes tipos de imagens.
+
     """)
 
 
 # Função para exibir os projetos pessoais
 def show_personal_projects():
-    st.markdown("### Meus Projetos Pessoais")
-    st.markdown("""
-    Aqui estão alguns dos meus projetos pessoais, desenvolvidos fora do contexto do HUB-IA.
-    """)
-    # Adicione detalhes dos seus projetos pessoais aqui
-    st.markdown("### Projeto Pessoal 1: [Título do Projeto]")
-    st.markdown("""
-    - **Descrição**: Descrição breve do projeto pessoal.
-    - **Tecnologias Usadas**: [Tecnologias]
-    """)
-    st.markdown("### Projeto Pessoal 2: [Título do Projeto]")
-    st.markdown("""
-    - **Descrição**: Descrição breve do projeto pessoal.
-    - **Tecnologias Usadas**: [Tecnologias]
-    """)
+    st.markdown("### Meus Projetos Pessoais se encontram no meu Github. Para acessá-los clique no logo abaixo:")
+    # Ícone do GitHub com link para o repositório
+    social_icons_data = {
+        "GitHub": ["https://github.com/pedarias", "https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg"]
+    }
+
+    social_icons_html = [f"<a href='{social_icons_data[platform][0]}' target='_blank'><img src='{social_icons_data[platform][1]}' width='50'></a>" for platform in social_icons_data]
+    st.write(f"<div style='display: flex; justify-content: center;'>{''.join(social_icons_html)}</div>", unsafe_allow_html=True)
 
 # Função principal que pode ser chamada no app
 if __name__ == "__main__":
