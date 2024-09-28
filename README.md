@@ -4,7 +4,7 @@ Bem-vindo ao meu portfólio pessoal desenvolvido em **Streamlit**! Este aplicati
 
 ## Acesse o Aplicativo
 
-Clique [aqui](link_para_o_seu_app) para visitar o meu portfólio e explorar meus projetos.
+Clique [aqui](https://myport.streamlit.app/) para visitar o meu portfólio e explorar meus projetos.
 
 ## Sobre o Aplicativo
 
